@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    width: 98vw;
+    font-family: 'Kdam Thmor Pro';
+}
+
+#calc-box{
+    display: flex;
+    height: 620px;
+    width: 405px;
+    flex-direction: column;
+    background-color: black;
+    border: 8px solid black;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+#display{
+    display: flex;
+    height: 120px;
+    width: 395px;
+    color: rgb(231, 231, 231);
+    /* align-items: flex-end;
+    justify-content: flex-end; */
+    font-size: 90px;
+    font-weight: bold;
+    justify-content: flex-end;
+}
+
+#main-box{
+    display: flex;
+    width: 395px;
+    margin-bottom: 5px;
+}
+
+#clear-row{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.top-row{
+    display: flex;
+    height: 100px;
+    width: 400px;
+}
+
+#number-block{
+    display: flex;
+    height: 390px;
+    width: 300px;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+.numbers, .operators, .top-row{
+    display: flex;
+    height: 95px;
+    width: 95px;
+    background-color: rgb(0, 65, 204);
+    font-size: 45px;
+    color: rgb(231, 231, 231);
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+#zero{
+    width: 195px;
+    height: 95px;
+}
+
+#operator-box{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    gap: 5px;
+}
