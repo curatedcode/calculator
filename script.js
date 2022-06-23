@@ -19,22 +19,55 @@ const opSubtract = document.getElementById("op-Subtract");
 const opAdd = document.getElementById("op-Add");
 const opEqual = document.getElementById("op-Multiply");
 
-numOne.addEventListener('mousedown', storage());
-numTwo.addEventListener('mousedown', storage());
-numThree.addEventListener('mousedown', storage());
-numFour.addEventListener('mousedown', storage());
-numFive.addEventListener('mousedown', storage());
-numSix.addEventListener('mousedown', storage());
-numSeven.addEventListener('mousedown', storage());
-numEight.addEventListener('mousedown', storage());
-numNine.addEventListener('mousedown', storage());
-numZero.addEventListener('mousedown', storage());
-opDivide.addEventListener('mousedown', storage());
-opMultiply.addEventListener('mousedown', storage());
-opSubtract.addEventListener('mousedown', storage());
-opAdd.addEventListener('mousedown', storage());
-opEqual.addEventListener('mousedown', storage());
+numOne.addEventListener('mousedown', storage);
+numTwo.addEventListener('mousedown', storage);
+numThree.addEventListener('mousedown', storage);
+numFour.addEventListener('mousedown', storage);
+numFive.addEventListener('mousedown', storage);
+numSix.addEventListener('mousedown', storage);
+numSeven.addEventListener('mousedown', storage);
+numEight.addEventListener('mousedown', storage);
+numNine.addEventListener('mousedown', storage);
+numZero.addEventListener('mousedown', storage);
+opDivide.addEventListener('mousedown', storage);
+opMultiply.addEventListener('mousedown', storage);
+opSubtract.addEventListener('mousedown', storage);
+opAdd.addEventListener('mousedown', storage);
+opEqual.addEventListener('mousedown', storage);
 
+function storage(e){
+    if(e.target == numOne){
+        console.log('1');
+    } else if (e.target == numTwo){
+        console.log('2');
+    } else if (e.target == numThree){
+        console.log('3');
+    } else if (e.target == numFour){
+        console.log('4');
+    } else if (e.target == numFive){
+        console.log('5');
+    } else if (e.target == numSix){
+        console.log('6');
+    } else if (e.target == numSeven){
+        console.log('7');
+    } else if (e.target == numEight){
+        console.log('8');
+    } else if (e.target == numNine){
+        console.log('9');
+    } else if (e.target == numZero){
+        console.log('0');
+    } else if (e.target == opDivide){
+        console.log('Divide');
+    } else if (e.target == opMultiply){
+        console.log('Multiply');
+    } else if (e.target == opSubtract){
+        console.log('Subtract');
+    } else if (e.target == opAdd){
+        console.log('Add');
+    } else if (e.target == opEqual){
+        console.log('Equal');
+    }
+};
 
 function add(){
     let result = testOne+testTwo;
@@ -55,11 +88,3 @@ function divide(){
     let result = testOne/testTwo;
     console.log(result);
 };
-
-
-
-
-add();
-subtract();
-multiply();
-divide();
