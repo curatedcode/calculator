@@ -34,11 +34,20 @@ numSeven.addEventListener('mousedown', storage);
 numEight.addEventListener('mousedown', storage);
 numNine.addEventListener('mousedown', storage);
 numZero.addEventListener('mousedown', storage);
+
+period.addEventListener('mousedown', storage);
+posNeg.addEventListener('mousedown', storage);
+clear.addEventListener('mousedown', storage);
+percent.addEventListener('mousedown', storage);
+
+
 opDivide.addEventListener('mousedown', storage);
 opMultiply.addEventListener('mousedown', storage);
 opSubtract.addEventListener('mousedown', storage);
 opAdd.addEventListener('mousedown', storage);
 opEqual.addEventListener('mousedown', storage);
+
+
 
 function storage(e){
     if(e.target == numOne){
@@ -71,6 +80,14 @@ function storage(e){
         console.log('Add');
     } else if (e.target == opEqual){
         console.log('Equal');
+    } else if (e.target == period){
+        console.log('period');
+    } else if (e.target == posNeg){
+        console.log('posNeg');
+    } else if (e.target == clear){
+        console.log('clear');
+    } else if (e.target == percent){
+        console.log('percent');
     }
 };
 
