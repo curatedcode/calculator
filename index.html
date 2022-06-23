@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div id="calc-box">
@@ -15,27 +15,27 @@
             <div class="top-row">C</div>
             <div class="top-row">-/+</div>
             <div class="top-row">%</div>
-            <div class="top-row">/</div>
+            <div id="op-Divide" class="top-row">&divide;</div>
         </div>
         <div id="main-box">
             <div id="number-block">
-                <div class="numbers">1</div>
-                <div class="numbers">2</div>
-                <div class="numbers">3</div>
-                <div class="numbers">4</div>
-                <div class="numbers">5</div>
-                <div class="numbers">6</div>
-                <div class="numbers">7</div>
-                <div class="numbers">8</div>
-                <div class="numbers">9</div>
-                <div id="zero" class="numbers">0</div>
-                <div class="numbers">.</div>
+                <div id="num-1" class="numbers">1</div>
+                <div id="num-2" class="numbers">2</div>
+                <div id="num-3" class="numbers">3</div>
+                <div id="num-4" class="numbers">4</div>
+                <div id="num-5" class="numbers">5</div>
+                <div id="num-6" class="numbers">6</div>
+                <div id="num-7" class="numbers">7</div>
+                <div id="num-8" class="numbers">8</div>
+                <div id="num-9" class="numbers">9</div>
+                <div id="num-0" class="numbers">0</div>
+                <div id="period" class="numbers">.</div>
             </div>
             <div id="operator-box">
-                <div id="ops" class="operators">*</div>
-                <div id="ops" class="operators">-</div>
-                <div id="ops" class="operators">+</div>
-                <div id="ops" class="operators">=</div>
+                <div id="op-Multiply" class="operators">*</div>
+                <div id="op-Subtract" class="operators">-</div>
+                <div id="op-Add" class="operators">+</div>
+                <div id="op-Equal" class="operators">=</div>
             </div>
         </div>
     </div>
