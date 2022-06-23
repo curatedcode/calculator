@@ -19,6 +19,11 @@ const opSubtract = document.getElementById("op-Subtract");
 const opAdd = document.getElementById("op-Add");
 const opEqual = document.getElementById("op-Multiply");
 
+const period = document.getElementById("period");
+const posNeg = document.getElementById("pos-neg");
+const clear = document.getElementById('clear');
+const percent = document.getElementById("percent");
+
 numOne.addEventListener('mousedown', storage);
 numTwo.addEventListener('mousedown', storage);
 numThree.addEventListener('mousedown', storage);
