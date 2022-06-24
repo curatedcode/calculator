@@ -73,7 +73,6 @@ let currentValue = firstValue;
 function operatorFunc(e){
     stringOne = firstValue.toString();
     valueOne = stringOne.replace(/,/g, '');
-    console.log(valueOne);
     if (e.target == opDivide){
         opTrigger = true;
         divideTrigger = true;
@@ -121,12 +120,10 @@ function result(){
     let finalResult;
     stringTwo = secondValue.toString();
     valueTwo = stringTwo.replace(/,/g,'');
-    console.log(valueTwo);
     if (divideTrigger == true){
         finalResult = valueOne/valueTwo;
     } else if (multiplyTrigger == true){
         finalResult = valueOne*valueTwo;
-        console.log(finalResult);
     } else if (subtractTrigger == true){
         finalResult = valueOne-valueTwo;
     } else if (addTrigger == true){
@@ -134,5 +131,3 @@ function result(){
     }
     
 };
-
-console.log();
