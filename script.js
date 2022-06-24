@@ -1,4 +1,6 @@
 
+const display = document.getElementById('display');
+
 const numOne = document.getElementById('num-1');
 const numTwo = document.getElementById('num-2');
 const numThree = document.getElementById('num-3');
