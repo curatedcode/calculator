@@ -17,7 +17,7 @@ const opDivide = document.getElementById("op-Divide");
 const opMultiply = document.getElementById("op-Multiply");
 const opSubtract = document.getElementById("op-Subtract");
 const opAdd = document.getElementById("op-Add");
-const opEqual = document.getElementById("op-Multiply");
+const opEqual = document.getElementById("op-Equal");
 
 const period = document.getElementById("period");
 const posNeg = document.getElementById("pos-neg");
