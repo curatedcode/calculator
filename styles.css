@@ -8,6 +8,7 @@ body{
     height: 98vh;
     width: 98vw;
     font-family: 'Kdam Thmor Pro';
+    user-select: none;
 }
 
 #calc-box{
