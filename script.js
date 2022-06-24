@@ -1,6 +1,3 @@
-let testOne = 3;
-let testTwo = 4;
-
 
 const numOne = document.getElementById('num-1');
 const numTwo = document.getElementById('num-2');
@@ -24,6 +21,12 @@ const posNeg = document.getElementById("pos-neg");
 const clear = document.getElementById('clear');
 const percent = document.getElementById("percent");
 
+// let operatorTrigger = false;
+// opDivide.onclick = () => {operatorTrigger = true; divideTrigger = true};
+// opMultiply.onclick = () => {operatorTrigger = true; multiplyTrigger = true};
+// opSubtract.onclick = () => {operatorTrigger = true; subtractTrigger = true};
+// opAdd.onclick = () => {operatorTrigger = true; addTrigger = true};
+
 numOne.addEventListener('mousedown', storage);
 numTwo.addEventListener('mousedown', storage);
 numThree.addEventListener('mousedown', storage);
@@ -37,76 +40,99 @@ numZero.addEventListener('mousedown', storage);
 
 period.addEventListener('mousedown', storage);
 posNeg.addEventListener('mousedown', storage);
-clear.addEventListener('mousedown', storage);
+
 percent.addEventListener('mousedown', storage);
 
 
-opDivide.addEventListener('mousedown', storage);
-opMultiply.addEventListener('mousedown', storage);
-opSubtract.addEventListener('mousedown', storage);
-opAdd.addEventListener('mousedown', storage);
-opEqual.addEventListener('mousedown', storage);
+opDivide.addEventListener('mousedown', operatorFunc);
+opMultiply.addEventListener('mousedown', operatorFunc);
+opSubtract.addEventListener('mousedown', operatorFunc);
+opAdd.addEventListener('mousedown', operatorFunc);
+opEqual.addEventListener('mousedown', result);
 
+// clear.addEventListener('mousedown', clearDisplay);
 
+let divideTrigger = false;
+let multiplyTrigger = false;
+let subtractTrigger = false;
+let addTrigger = false;
 
-function storage(e){
-    if(e.target == numOne){
-        console.log('1');
-    } else if (e.target == numTwo){
-        console.log('2');
-    } else if (e.target == numThree){
-        console.log('3');
-    } else if (e.target == numFour){
-        console.log('4');
-    } else if (e.target == numFive){
-        console.log('5');
-    } else if (e.target == numSix){
-        console.log('6');
-    } else if (e.target == numSeven){
-        console.log('7');
-    } else if (e.target == numEight){
-        console.log('8');
-    } else if (e.target == numNine){
-        console.log('9');
-    } else if (e.target == numZero){
-        console.log('0');
-    } else if (e.target == opDivide){
-        console.log('Divide');
+let opTrigger = false;
+
+let firstValue = [];
+let secondValue = [];
+let operator;
+
+let stringOne;
+let stringTwo;
+let valueOne;
+let valueTwo;
+
+let currentValue = firstValue;
+
+function operatorFunc(e){
+    stringOne = firstValue.toString();
+    valueOne = stringOne.replace(/,/g, '');
+    console.log(valueOne);
+    if (e.target == opDivide){
+        opTrigger = true;
+        divideTrigger = true;
+        currentValue = secondValue;
     } else if (e.target == opMultiply){
-        console.log('Multiply');
+        opTrigger = true;
+        multiplyTrigger = true;
+        currentValue = secondValue;
     } else if (e.target == opSubtract){
-        console.log('Subtract');
+        opTrigger = true;
+        subtractTrigger = true;
+        currentValue = secondValue;
     } else if (e.target == opAdd){
-        console.log('Add');
-    } else if (e.target == opEqual){
-        console.log('Equal');
-    } else if (e.target == period){
-        console.log('period');
-    } else if (e.target == posNeg){
-        console.log('posNeg');
-    } else if (e.target == clear){
-        console.log('clear');
-    } else if (e.target == percent){
-        console.log('percent');
+        opTrigger = true;
+        addTrigger = true;
+        currentValue = secondValue;
     }
 };
 
-function add(){
-    let result = testOne+testTwo;
-    console.log(result);
+function storage(e){
+    if(e.target == numOne){
+        currentValue.push('1');
+    } else if (e.target == numTwo){
+        currentValue.push('2');
+    } else if (e.target == numThree){
+        currentValue.push('3');
+    } else if (e.target == numFour){
+        currentValue.push('4');
+    } else if (e.target == numFive){
+        currentValue.push('5');
+    } else if (e.target == numSix){
+        currentValue.push('6');
+    } else if (e.target == numSeven){
+        currentValue.push('7');
+    } else if (e.target == numEight){
+        currentValue.push('8');
+    } else if (e.target == numNine){
+        currentValue.push('9');
+    } else if (e.target == numZero){
+        currentValue.push('0');
+    }
 };
 
-function subtract(){
-    let result = testOne-testTwo;
-    console.log(result);
+function result(){
+    let finalResult;
+    stringTwo = secondValue.toString();
+    valueTwo = stringTwo.replace(/,/g,'');
+    console.log(valueTwo);
+    if (divideTrigger == true){
+        finalResult = valueOne/valueTwo;
+    } else if (multiplyTrigger == true){
+        finalResult = valueOne*valueTwo;
+        console.log(finalResult);
+    } else if (subtractTrigger == true){
+        finalResult = valueOne-valueTwo;
+    } else if (addTrigger == true){
+        finalResult = valueOne+valueTwo;
+    }
+    
 };
 
-function multiply(){
-    let result = testOne*testTwo;
-    console.log(result);
-};
-
-function divide(){
-    let result = testOne/testTwo;
-    console.log(result);
-};
+console.log();
