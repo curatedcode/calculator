@@ -61,75 +61,72 @@ let addTrigger = false;
 
 let opTrigger = false;
 
-let firstValue = [];
-let secondValue = [];
+
+let firstValue = '';
+let secondValue = '';
 let operator;
-
-let stringOne;
-let stringTwo;
-let valueOne;
-let valueTwo;
-
 let currentValue = firstValue;
 
 function operatorFunc(e){
-    stringOne = firstValue.toString();
-    valueOne = stringOne.replace(/,/g, '');
     if (e.target == opDivide){
-        opTrigger = true;
         divideTrigger = true;
+        firstValue = parseFloat(currentValue);
         currentValue = secondValue;
     } else if (e.target == opMultiply){
-        opTrigger = true;
         multiplyTrigger = true;
+        firstValue = parseFloat(currentValue);
         currentValue = secondValue;
     } else if (e.target == opSubtract){
-        opTrigger = true;
         subtractTrigger = true;
+        firstValue = parseFloat(currentValue);
         currentValue = secondValue;
     } else if (e.target == opAdd){
-        opTrigger = true;
         addTrigger = true;
+        firstValue = parseFloat(currentValue);
         currentValue = secondValue;
     }
 };
 
 function storage(e){
     if(e.target == numOne){
-        currentValue.push('1');
+        currentValue = currentValue.concat('1');
+        console.log(currentValue);
     } else if (e.target == numTwo){
-        currentValue.push('2');
+        currentValue = currentValue.concat('2');
+        console.log(currentValue);
     } else if (e.target == numThree){
-        currentValue.push('3');
+        currentValue = currentValue.concat('3');
     } else if (e.target == numFour){
-        currentValue.push('4');
+        currentValue = currentValue.concat('4');
     } else if (e.target == numFive){
-        currentValue.push('5');
+        currentValue = currentValue.concat('5');
     } else if (e.target == numSix){
-        currentValue.push('6');
+        currentValue = currentValue.concat('6');
     } else if (e.target == numSeven){
-        currentValue.push('7');
+        currentValue = currentValue.concat('7');
     } else if (e.target == numEight){
-        currentValue.push('8');
+        currentValue = currentValue.concat('8');
     } else if (e.target == numNine){
-        currentValue.push('9');
+        currentValue = currentValue.concat('9');
     } else if (e.target == numZero){
-        currentValue.push('0');
+        currentValue = currentValue.concat('0');
     }
 };
 
 function result(){
     let finalResult;
-    stringTwo = secondValue.toString();
-    valueTwo = stringTwo.replace(/,/g,'');
+    secondValue = parseFloat(currentValue);
     if (divideTrigger == true){
-        finalResult = valueOne/valueTwo;
+        finalResult = firstValue/secondValue;
+        console.log(firstValue);
     } else if (multiplyTrigger == true){
-        finalResult = valueOne*valueTwo;
+        finalResult = firstValue*secondValue;
+        console.log(firstValue,secondValue,finalResult);
     } else if (subtractTrigger == true){
-        finalResult = valueOne-valueTwo;
+        finalResult = firstValue-secondValue;
+        console.log(firstValue,secondValue,finalResult);
     } else if (addTrigger == true){
-        finalResult = valueOne+valueTwo;
+        finalResult = firstValue+secondValue;
+        console.log(firstValue,secondValue,finalResult);
     }
-    
 };
