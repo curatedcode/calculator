@@ -22,7 +22,7 @@ body{
     padding-left: 10px;
 }
 
-.display{
+#display{
     display: flex;
     height: 120px;
     width: 395px;
