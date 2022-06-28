@@ -23,12 +23,6 @@ const posNeg = document.getElementById("pos-neg");
 const clear = document.getElementById('clear');
 const percent = document.getElementById("percent");
 
-// let operatorTrigger = false;
-// opDivide.onclick = () => {operatorTrigger = true; divideTrigger = true};
-// opMultiply.onclick = () => {operatorTrigger = true; multiplyTrigger = true};
-// opSubtract.onclick = () => {operatorTrigger = true; subtractTrigger = true};
-// opAdd.onclick = () => {operatorTrigger = true; addTrigger = true};
-
 numOne.addEventListener('mousedown', storage);
 numTwo.addEventListener('mousedown', storage);
 numThree.addEventListener('mousedown', storage);
@@ -51,8 +45,6 @@ opMultiply.addEventListener('mousedown', operatorFunc);
 opSubtract.addEventListener('mousedown', operatorFunc);
 opAdd.addEventListener('mousedown', operatorFunc);
 opEqual.addEventListener('mousedown', result);
-
-// clear.addEventListener('mousedown', clearDisplay);
 
 let divideTrigger = false;
 let multiplyTrigger = false;
@@ -90,10 +82,8 @@ function operatorFunc(e){
 function storage(e){
     if(e.target == numOne){
         currentValue = currentValue.concat('1');
-        console.log(currentValue);
     } else if (e.target == numTwo){
         currentValue = currentValue.concat('2');
-        console.log(currentValue);
     } else if (e.target == numThree){
         currentValue = currentValue.concat('3');
     } else if (e.target == numFour){
@@ -118,15 +108,11 @@ function result(){
     secondValue = parseFloat(currentValue);
     if (divideTrigger == true){
         finalResult = firstValue/secondValue;
-        console.log(firstValue);
     } else if (multiplyTrigger == true){
         finalResult = firstValue*secondValue;
-        console.log(firstValue,secondValue,finalResult);
     } else if (subtractTrigger == true){
         finalResult = firstValue-secondValue;
-        console.log(firstValue,secondValue,finalResult);
     } else if (addTrigger == true){
         finalResult = firstValue+secondValue;
-        console.log(firstValue,secondValue,finalResult);
     }
 };
