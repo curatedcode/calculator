@@ -1,6 +1,8 @@
 
 const display = document.getElementById('display');
 
+display.append('0');
+
 const numOne = document.getElementById('num-1');
 const numTwo = document.getElementById('num-2');
 const numThree = document.getElementById('num-3');
@@ -62,21 +64,15 @@ let currentValue = firstValue;
 function operatorFunc(e){
     if (e.target == opDivide){
         divideTrigger = true;
-        firstValue = parseFloat(currentValue);
-        currentValue = secondValue;
     } else if (e.target == opMultiply){
         multiplyTrigger = true;
-        firstValue = parseFloat(currentValue);
-        currentValue = secondValue;
     } else if (e.target == opSubtract){
         subtractTrigger = true;
-        firstValue = parseFloat(currentValue);
-        currentValue = secondValue;
     } else if (e.target == opAdd){
         addTrigger = true;
-        firstValue = parseFloat(currentValue);
-        currentValue = secondValue;
     }
+    firstValue = parseFloat(currentValue);
+    currentValue = secondValue;
 };
 
 function storage(e){
@@ -101,6 +97,7 @@ function storage(e){
     } else if (e.target == numZero){
         currentValue = currentValue.concat('0');
     }
+    updateDisplay(currentValue);
 };
 
 function result(){
@@ -114,5 +111,17 @@ function result(){
         finalResult = firstValue-secondValue;
     } else if (addTrigger == true){
         finalResult = firstValue+secondValue;
+    }
+    opTrigger = true;
+    updateDisplay(finalResult);
+};
+
+function updateDisplay(finalResult){
+    display.textContent = '';
+    if (opTrigger == true){
+        display.append(`${finalResult}`);
+        opTrigger = false;
+    } else {
+        display.append(`${currentValue}`);
     }
 };
