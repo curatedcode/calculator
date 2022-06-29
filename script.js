@@ -97,6 +97,10 @@ function storage(e){
         currentValue = currentValue.concat('9');
     } else if (e.target == numZero){
         currentValue = currentValue.concat('0');
+    } else if (e.target == period){
+        currentValue = currentValue.concat('.');
+    } else if (e.target == posNeg){
+        currentValue = currentValue.concat('-');
     }
     updateDisplay(currentValue);
 };
