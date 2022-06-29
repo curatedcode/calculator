@@ -41,6 +41,7 @@ posNeg.addEventListener('mousedown', storage);
 
 percent.addEventListener('mousedown', storage);
 
+clear.addEventListener('mousedown', clearAll);
 
 opDivide.addEventListener('mousedown', operatorFunc);
 opMultiply.addEventListener('mousedown', operatorFunc);
@@ -125,3 +126,15 @@ function updateDisplay(finalResult){
         display.append(`${currentValue}`);
     }
 };
+
+function clearAll(){
+    divideTrigger = false;
+    multiplyTrigger = false;
+    subtractTrigger = false;
+    addTrigger = false;
+    opTrigger = false;
+    firstValue = '';
+    secondValue = '';
+    currentValue = firstValue;
+    display.textContent = '0';
+}
