@@ -22,8 +22,8 @@ const opEqual = document.getElementById("op-Equal");
 
 const period = document.getElementById("period");
 const posNeg = document.getElementById("pos-neg");
-const clear = document.getElementById('clear');
-const percent = document.getElementById("percent");
+const clear = document.getElementById("clear");
+const undo = document.getElementById("undo");
 
 numOne.addEventListener('mousedown', storage);
 numTwo.addEventListener('mousedown', storage);
@@ -39,7 +39,7 @@ numZero.addEventListener('mousedown', storage);
 period.addEventListener('mousedown', storage);
 posNeg.addEventListener('mousedown', storage);
 
-percent.addEventListener('mousedown', storage);
+undo.addEventListener('mousedown', undoLast);
 
 clear.addEventListener('mousedown', clearAll);
 
@@ -127,6 +127,16 @@ function updateDisplay(finalResult){
     }
 };
 
+function undoLast(){
+    currentValue = currentValue.slice(0,-1);
+    if (currentValue == ''){
+        display.textContent = '0';
+    } else {
+        display.textContent = '';
+        display.append(`${currentValue}`);
+    }
+};
+
 function clearAll(){
     divideTrigger = false;
     multiplyTrigger = false;
@@ -137,4 +147,4 @@ function clearAll(){
     secondValue = '';
     currentValue = firstValue;
     display.textContent = '0';
-}
+};
