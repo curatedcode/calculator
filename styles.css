@@ -24,11 +24,9 @@ body{
 
 #display{
     display: flex;
-    height: 120px;
+    min-height: 120px;
     width: 395px;
     color: rgb(231, 231, 231);
-    /* align-items: flex-end;
-    justify-content: flex-end; */
     font-size: 90px;
     font-weight: bold;
     justify-content: flex-end;
