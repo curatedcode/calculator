@@ -14,11 +14,11 @@ const numEight = document.getElementById('num-8');
 const numNine = document.getElementById('num-9');
 const numZero = document.getElementById('num-0');
 
-const opDivide = document.getElementById("op-Divide");
-const opMultiply = document.getElementById("op-Multiply");
-const opSubtract = document.getElementById("op-Subtract");
-const opAdd = document.getElementById("op-Add");
-const opEqual = document.getElementById("op-Equal");
+const divide = document.getElementById("op-Divide");
+const multiply = document.getElementById("op-Multiply");
+const subtract = document.getElementById("op-Subtract");
+const add = document.getElementById("op-Add");
+const equal = document.getElementById("op-Equal");
 
 const period = document.getElementById("period");
 const posNeg = document.getElementById("pos-neg");
@@ -39,42 +39,24 @@ numZero.addEventListener('mousedown', storage);
 period.addEventListener('mousedown', storage);
 posNeg.addEventListener('mousedown', storage);
 
-undo.addEventListener('mousedown', undoLast);
+// undo.addEventListener('mousedown', undoLast);
 
-clear.addEventListener('mousedown', clearAll);
+// clear.addEventListener('mousedown', clearAll);
 
-opDivide.addEventListener('mousedown', operatorFunc);
-opMultiply.addEventListener('mousedown', operatorFunc);
-opSubtract.addEventListener('mousedown', operatorFunc);
-opAdd.addEventListener('mousedown', operatorFunc);
-opEqual.addEventListener('mousedown', result);
-
-let divideTrigger = false;
-let multiplyTrigger = false;
-let subtractTrigger = false;
-let addTrigger = false;
-
-let opTrigger = false;
+divide.addEventListener('mousedown', opStorage);
+multiply.addEventListener('mousedown', opStorage);
+subtract.addEventListener('mousedown', opStorage);
+add.addEventListener('mousedown', opStorage);
+equal.addEventListener('mousedown', opStorage);
 
 
 let firstValue = '';
 let secondValue = '';
-let operator;
 let currentValue = firstValue;
 
-function operatorFunc(e){
-    if (e.target == opDivide){
-        divideTrigger = true;
-    } else if (e.target == opMultiply){
-        multiplyTrigger = true;
-    } else if (e.target == opSubtract){
-        subtractTrigger = true;
-    } else if (e.target == opAdd){
-        addTrigger = true;
-    }
-    firstValue = parseFloat(currentValue);
-    currentValue = secondValue;
-};
+let operator = '';
+let computeTrigger = false;
+let secondComputeTrigger = false;
 
 function storage(e){
     if(e.target == numOne){
@@ -102,53 +84,57 @@ function storage(e){
     } else if (e.target == posNeg){
         currentValue = currentValue.concat('-');
     }
+   
     updateDisplay(currentValue);
 };
 
-function result(){
-    let finalResult;
+function opStorage(e){
+    if (secondComputeTrigger == false){
+        firstValue = parseFloat(currentValue);
+    }
+    if (e.target == divide){
+        operator = operator.concat('/');
+        currentValue = secondValue;
+    } else if (e.target == multiply){
+        operator = operator.concat('*');
+        currentValue = secondValue;
+    } else if (e.target == subtract){
+        operator = operator.concat('-');
+        currentValue = secondValue;
+    } else if (e.target == add){
+        operator = operator.concat('+');
+        currentValue = secondValue;
+    } else if (e.target == equal){
+        // operator = operator.concat('=');
+        computeTrigger = true;
+        console.log('=');
+        compute(currentValue);
+        
+    }
+};
+
+function compute(){
+    let result;
     secondValue = parseFloat(currentValue);
-    if (divideTrigger == true){
-        finalResult = firstValue/secondValue;
-    } else if (multiplyTrigger == true){
-        finalResult = firstValue*secondValue;
-    } else if (subtractTrigger == true){
-        finalResult = firstValue-secondValue;
-    } else if (addTrigger == true){
-        finalResult = firstValue+secondValue;
+    if (operator == '/'){
+        result = firstValue/secondValue;
+    } else if (operator == '*'){
+        result = firstValue*secondValue;
+    } else if (operator == '-'){
+        result = firstValue-secondValue;
+    } else if (operator == '+'){
+        result = firstValue+secondValue;
     }
-    opTrigger = true;
-    updateDisplay(finalResult);
+    firstValue = result;
+    console.log(firstValue);
+    updateDisplay(firstValue);
 };
 
-function updateDisplay(finalResult){
+function updateDisplay(){
     display.textContent = '';
-    if (opTrigger == true){
-        display.append(`${finalResult}`);
-        opTrigger = false;
+    if (computeTrigger == true){
+        display.append(firstValue);
     } else {
-        display.append(`${currentValue}`);
+        display.append(currentValue);
     }
-};
-
-function undoLast(){
-    currentValue = currentValue.slice(0,-1);
-    if (currentValue == ''){
-        display.textContent = '0';
-    } else {
-        display.textContent = '';
-        display.append(`${currentValue}`);
-    }
-};
-
-function clearAll(){
-    divideTrigger = false;
-    multiplyTrigger = false;
-    subtractTrigger = false;
-    addTrigger = false;
-    opTrigger = false;
-    firstValue = '';
-    secondValue = '';
-    currentValue = firstValue;
-    display.textContent = '0';
 };
